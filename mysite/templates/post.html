@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{post_detail.title}}|My site</title>
+    <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//djangogirlstaipei.github.io/assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="site-title text-center">
+            <a href="/home.html/">My site</a>
+        </h1>
+    </div>
+
+    <div class="container post post-detail">
+
+        <!--標題-->
+        <div class="post-heading">
+            <h1 class="title">{{ post_detail.title }}</h1>
+            <div class="date">{{ post_detail.created_at|date:'Y / m / d' }}</div>
+        </div>
+
+        <!--地點標題-->
+        <div class="location">
+            <i class="fa fa-map-marker"></i>
+            <span id="location-content">{{ post_detail.location }}</span>
+        </div>
+
+        <!--地圖-->
+        <iframe src="{{post_detail.map}}" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+        <!--內容-->
+        <div class="post-content">
+            {{ post_detail.content }}
+        </div>
+
+        <!--分隔-->
+        <hr class="fancy-line">
+
+        <!--照片-->
+        <img class="photo" src="{{ post_detail.photo }}" alt="Cover photo for {{ post_detail.title }}">
+
+    </div>
+
+</body>
+</html>
